@@ -57,7 +57,7 @@ workEY.title = "Senior Manager";
 var formattedName = HTMLheaderName.replace("%data%", bio.fullName);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedContact = HTMLcontactGeneric.replace("%contact%", bio.contact[0] &
-    "%data%", bio.contact[1] );
+    "%data%", bio.contact[1] ); // This doesn't work
 var formattedPic = HTMLbioPic.replace("%data%", bio.headshot);
 var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcome);
 
@@ -97,3 +97,18 @@ console.log(formattedWorkComp);
 //$("#lets-connect").append(formattedTwitter);
 //$("#lets-connect").append(formattedGitHub);
 //$("#lets-connect").append(formattedWeb);
+
+// Sloppy way to list skills as it requires repeated code.
+if(bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+
+  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  $("#skills").append(formattedSkill);
+  formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+  $("#skills").append(formattedSkill);
+}
+
